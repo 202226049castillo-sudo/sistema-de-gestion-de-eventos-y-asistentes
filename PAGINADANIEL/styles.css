@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    background-image: url("images\ \(2\).jpg"); /* o la URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* HEADER */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0b0b0b;
+    padding: 15px 40px;
+    color: #ffc400;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.menu a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* HERO */
+.hero {
+    height: 75vh;
+    background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+                url("descarga.jpg") center/cover;
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+}
+
+.hero-content {
+    color: white;
+    max-width: 550px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero-info {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* PANELES */
+.panel {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.panel-info {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+}
+
+/* COLORES POR SECCIÓN */
+.panel-eventos {
+    background: #fff3cd;
+}
+
+.panel-asistentes {
+    background: #e3f2fd;
+}
+
+.panel-registro {
+    background: #212121;
+    color: rgb(0, 0, 0);
+}
+
+.panel-consulta {
+    background: #e8f5e9;
+}
+
+/* FORMULARIOS */
+input, select {
+    padding: 12px;
+    margin: 10px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* LISTAS */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: white;
+    margin: 5px auto;
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+}
+
+/* BOTONES */
+.btn-solid {
+    background: #ffc400;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #ffc400;
+    color: #ffc400;
+    padding: 12px 25px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    background: #0b0b0b;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.panel-info {
+    background: #f8f3f3;
+    text-align: center;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 60px 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.panel-info h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.panel-info p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
