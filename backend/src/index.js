@@ -1,14 +1,14 @@
-import express from 'express';
+import express from "express";
+import eventosRoutes from "./routes/eventos.routes.js";
 
 const app = express();
-const PORT = 4000;
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Servidor funcionando');
-});
+// rutas
+app.use("/api/eventos", eventosRoutes);
 
+const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en puerto ${PORT}`);
+  console.log("Servidor funcionando en puerto", PORT);
 });
