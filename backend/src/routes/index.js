@@ -1,9 +1,8 @@
-import { Router } from 'express';
+import { Router } from "express";
+import eventosRoutes from "./eventos.routes.js";
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  res.json({ mensaje: 'Rutas funcionando correctamente' });
-});
+router.use("/eventos", eventosRoutes);
 
 export default router;
