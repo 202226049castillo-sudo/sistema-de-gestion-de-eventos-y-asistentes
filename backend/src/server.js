@@ -1,13 +1,13 @@
-const express = require('express');
+const express = require("express");
 
 const app = express();
+const PORT = 3000;
+
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Servidor backend funcionando 🚀');
-});
+const eventosRoutes = require("./routes/eventos");
+app.use("/api/eventos", eventosRoutes);
 
-const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
