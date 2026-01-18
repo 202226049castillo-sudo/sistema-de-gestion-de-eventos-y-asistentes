@@ -55,7 +55,6 @@ El sistema cubre las siguientes funcionalidades:
 **Nota:** El sistema tiene fines demostrativos y académicos.
 
 - No incluye autenticación de usuarios.
-- No utiliza base de datos.
 - No maneja roles o permisos.
 - Los datos se almacenan únicamente en memoria (volátiles).
 
