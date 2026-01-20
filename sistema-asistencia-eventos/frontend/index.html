@@ -3,110 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Asistencia de Eventos</title>
+    <title>EventPass Pro | Sistema de Gestión de Asistencia</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="../resources/images/favicon.ico">
+    <meta name="description" content="Sistema profesional de gestión de asistencia para eventos masivos">
+    <meta name="author" content="EventPass Pro">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="../resources/images/logo.png" alt="Logo Eventos" class="logo">
-            <h1>Sistema de Gestión de Asistencia</h1>
-            <nav>
-                <button onclick="mostrarSeccion('registro')">Registrar Asistencia</button>
-                <button onclick="mostrarSeccion('asistentes')">Ver Asistentes</button>
-                <button onclick="mostrarSeccion('eventos')">Gestionar Eventos</button>
-            </nav>
-        </header>
-
-        <main>
-            <!-- Sección de registro de asistencia -->
-            <section id="registro" class="seccion-activa">
-                <h2><img src="../resources/icons/user.png" alt="Usuario" class="icono"> Registrar Asistencia</h2>
-                <form id="formRegistroAsistencia">
-                    <div class="form-group">
-                        <label for="evento_id">Evento:</label>
-                        <select id="evento_id" name="evento_id" required>
-                            <option value="">Seleccione un evento</option>
-                            <!-- Las opciones se cargan dinámicamente -->
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="codigo_asistente">Código del Asistente:</label>
-                        <input type="text" id="codigo_asistente" name="codigo_asistente" required 
-                               placeholder="Ingrese código o documento">
-                    </div>
-                    
-                    <button type="submit" class="btn-registrar">
-                        <img src="../resources/icons/check.png" alt="Check" class="icono"> Registrar Asistencia
-                    </button>
-                </form>
-                <div id="mensaje"></div>
-            </section>
-
-            <!-- Sección de gestión de asistentes -->
-            <section id="asistentes" class="seccion-oculta">
-                <h2><img src="../resources/icons/user.png" alt="Usuario" class="icono"> Gestión de Asistentes</h2>
-                <form id="formRegistrarAsistente">
-                    <div class="form-group">
-                        <label for="nombre">Nombre Completo:</label>
-                        <input type="text" id="nombre" name="nombre" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="documento">Documento de Identidad:</label>
-                        <input type="text" id="documento" name="documento" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico:</label>
-                        <input type="email" id="email" name="email">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="telefono">Teléfono:</label>
-                        <input type="text" id="telefono" name="telefono">
-                    </div>
-                    
-                    <button type="submit" class="btn-registrar">Registrar Asistente</button>
-                </form>
-            </section>
-
-            <!-- Sección de gestión de eventos -->
-            <section id="eventos" class="seccion-oculta">
-                <h2><img src="../resources/icons/event.png" alt="Evento" class="icono"> Gestión de Eventos</h2>
-                <form id="formRegistrarEvento">
-                    <div class="form-group">
-                        <label for="nombre_evento">Nombre del Evento:</label>
-                        <input type="text" id="nombre_evento" name="nombre_evento" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="fecha_evento">Fecha del Evento:</label>
-                        <input type="date" id="fecha_evento" name="fecha_evento" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="ubicacion">Ubicación:</label>
-                        <input type="text" id="ubicacion" name="ubicacion" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="descripcion">Descripción:</label>
-                        <textarea id="descripcion" name="descripcion" rows="3"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn-registrar">Registrar Evento</button>
-                </form>
-            </section>
-        </main>
-
-        <footer>
-            <p>Sistema de Gestión de Asistencia para Eventos Masivos &copy; 2023</p>
-        </footer>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
     </div>
 
+    <!-- Header Moderno -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="../resources/images/logo.png" alt="EventPass Pro Logo">
+                    <span>EventPass <strong>Pro</strong></span>
+                </a>
+                
+                <div class="nav-menu">
+                    <a href="#" class="nav-link active" data-section="dashboard">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                    <a href="#" class="nav-link" data-section="registro">
+                        <i class="fas fa-qrcode"></i> Escanear
+                    </a>
+                    <a href="#" class="nav-link" data-section="asistentes">
+                        <i class="fas fa-users"></i> Asistentes
+                    </a>
+                    <a href="#" class="nav-link" data-section="eventos">
+                        <i class="fas fa-calendar-alt"></i> Eventos
+                    </a>
+                    <a href="#" class="nav-link" data-section="reportes">
+                        <i class="fas fa-chart-bar"></i> Reportes
+                    </a>
+                </div>
+                
+                <div class="user-menu">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Administrador</span>
+                        <span class="user-role">Admin</span>
+                    </div>
+                    <button class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dashboard Principal -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Sección Dashboard -->
+            <section id="dashboard" class="dashboard-section">
+                <div class="dashboard-header">
+                    <h1><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+                    <div class="stats-summary">
+                        <div class="stat-card" data-aos="fade-up">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="total-eventos">0</h3>
+                                <p>Eventos Activos</p>
+                            </div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="total-asistentes">0</h3>
+                                <p>Asistentes Registrados</p>
+                            </div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="stat-icon">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="total-asistencias">0</h3>
+                                <p>Asistencias Hoy</p>
+                            </div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" style="width: 45%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Quick Actions -->
+                    <div class="card quick-actions" data-aos="fade-right">
+                        <h3><i class="fas fa-bolt"></i> Acciones Rápidas</h3>
+                        <div class="actions-grid">
+                            <button class="action-btn" onclick="mostrarSeccion('registro')">
+                                <i class="fas fa-qrcode"></i>
+                                <span>Escanear Entrada</span>
+                            </button>
+                            <button class="action-btn" onclick="mostrarSeccion('asistentes')">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Nuevo Asistente</span>
+                            </button>
+                            <button class="action-btn" onclick="mostrarSeccion('eventos')">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Crear Evento</span>
+                            </button>
+                            <button class="action-btn" onclick="generarReporte()">
+                                <i class="fas fa-file-export"></i>
+                                <span>Exportar Reporte</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Próximos Eventos -->
+                    <div class="card upcoming-events" data-aos="fade-left">
+                        <h3><i class="fas fa-calendar-day"></i> Próximos Eventos</h3>
+                        <div class="events-list" id="eventos-proximos">
+                            <!-- Los eventos se cargan dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="card recent-activity" data-aos="fade-up">
+                    <h3><i class="fas fa-history"></i> Actividad Reciente</h3>
+                    <div class="activity-list" id="actividad-reciente">
+                        <!-- Actividad se carga dinámicamente -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Escaneo/Registro -->
+            <section id="registro" class="section-oculta">
+                <div class="section-header">
+                    <h2><i class="fas fa-qrcode"></i> Escanear Asistencia</h2>
+                    <p>Escanee el código QR o ingrese manualmente los datos del asistente</p>
+                </div>
+                
+                <div class="scan-container">
+                    <div class="card scan-card" data-aos="zoom-in">
+                        <div class="qr-scanner-placeholder">
+                            <i class="fas fa-qrcode"></i>
+                            <p>Área de escaneo de QR</p>
+                            <button class="btn-secondary">
+                                <i class="fas fa-camera"></i> Activar Cámara
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card manual-entry" data-aos="fade-left">
+                        <h3>Registro Manual</h3>
+                        <form id="formRegistroAsistencia" class="modern-form">
+                            <div class="form-group">
+                                <label for="evento_id">
+                                    <i class="fas fa-calendar"></i> Evento
+                                </label>
+                                <div class="select-wrapper">
+                                    <select id="evento_id" name="evento_id" required>
+                                        <option value="">Seleccione un evento</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="codigo_asistente">
+                                    <i class="fas fa-id-card"></i> Código o Documento
+                                </label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-barcode"></i>
+                                    <input type="text" id="codigo_asistente" name="codigo_asistente" required 
+                                           placeholder="Ingrese código, documento o escanee QR">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tipo_verificacion">
+                                    <i class="fas fa-shield-alt"></i> Tipo de Verificación
+                                </label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="tipo_verificacion" value="qr" checked>
+                                        <span class="radio-custom"></span>
+                                        Verificación QR
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="tipo_verificacion" value="manual">
+                                        <span class="radio-custom"></span>
+                                        Verificación Manual
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="tipo_verificacion" value="facial">
+                                        <span class="radio-custom"></span>
+                                        Reconocimiento Facial
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary btn-block">
+                                <i class="fas fa-check-circle"></i> Verificar y Registrar Asistencia
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="verification-result" id="resultado-verificacion">
+                    <!-- Resultado de verificación aparece aquí -->
+                </div>
+            </section>
+
+            <!-- Sección de Gestión de Asistentes -->
+            <section id="asistentes" class="section-oculta">
+                <div class="section-header">
+                    <h2><i class="fas fa-users"></i> Gestión de Asistentes</h2>
+                    <div class="section-actions">
+                        <button class="btn-secondary" onclick="exportarAsistentes()">
+                            <i class="fas fa-file-export"></i> Exportar
+                        </button>
+                        <button class="btn-primary" onclick="mostrarModalAsistente()">
+                            <i class="fas fa-user-plus"></i> Nuevo Asistente
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="table-container">
+                        <table class="data-table" id="tabla-asistentes">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nombre</th>
+                                    <th>Documento</th>
+                                    <th>Email</th>
+                                    <th>Teléfono</th>
+                                    <th>Fecha Registro</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Asistentes se cargan dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Gestión de Eventos -->
+            <section id="eventos" class="section-oculta">
+                <div class="section-header">
+                    <h2><i class="fas fa-calendar-alt"></i> Gestión de Eventos</h2>
+                    <div class="section-actions">
+                        <button class="btn-primary" onclick="mostrarModalEvento()">
+                            <i class="fas fa-plus-circle"></i> Crear Evento
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="events-grid">
+                    <!-- Eventos se cargan dinámicamente -->
+                </div>
+            </section>
+
+            <!-- Sección de Reportes -->
+            <section id="reportes" class="section-oculta">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-bar"></i> Reportes y Análisis</h2>
+                </div>
+                
+                <div class="charts-container">
+                    <div class="card" data-aos="fade-up">
+                        <h3>Asistencias por Evento</h3>
+                        <canvas id="chartAsistencias"></canvas>
+                    </div>
+                    
+                    <div class="card" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Tendencia Mensual</h3>
+                        <canvas id="chartTendencia"></canvas>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal para Nuevo Asistente -->
+    <div id="modalAsistente" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-plus"></i> Nuevo Asistente</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="formRegistrarAsistente" class="modern-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre"><i class="fas fa-user"></i> Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="documento"><i class="fas fa-id-card"></i> Documento</label>
+                        <input type="text" id="documento" name="documento" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono"><i class="fas fa-phone"></i> Teléfono</label>
+                        <input type="text" id="telefono" name="telefono">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="categoria"><i class="fas fa-tag"></i> Categoría</label>
+                    <select id="categoria" name="categoria">
+                        <option value="general">General</option>
+                        <option value="vip">VIP</option>
+                        <option value="ponente">Ponente</option>
+                        <option value="organizador">Organizador</option>
+                        <option value="prensa">Prensa</option>
+                    </select>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary modal-close">Cancelar</button>
+                    <button type="submit" class="btn-primary">Registrar Asistente</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Nuevo Evento -->
+    <div id="modalEvento" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-calendar-plus"></i> Crear Nuevo Evento</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="formRegistrarEvento" class="modern-form">
+                <div class="form-group">
+                    <label for="nombre_evento"><i class="fas fa-heading"></i> Nombre del Evento</label>
+                    <input type="text" id="nombre_evento" name="nombre_evento" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fecha_evento"><i class="fas fa-calendar-day"></i> Fecha</label>
+                        <input type="date" id="fecha_evento" name="fecha_evento" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hora_evento"><i class="fas fa-clock"></i> Hora</label>
+                        <input type="time" id="hora_evento" name="hora_evento" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ubicacion"><i class="fas fa-map-marker-alt"></i> Ubicación</label>
+                    <input type="text" id="ubicacion" name="ubicacion" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="capacidad"><i class="fas fa-users"></i> Capacidad Máxima</label>
+                    <input type="number" id="capacidad" name="capacidad" min="1" value="100">
+                </div>
+                
+                <div class="form-group">
+                    <label for="descripcion"><i class="fas fa-align-left"></i> Descripción</label>
+                    <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary modal-close">Cancelar</button>
+                    <button type="submit" class="btn-primary">Crear Evento</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer"></div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../resources/images/logo.png" alt="EventPass Pro" class="footer-logo">
+                    <h3>EventPass Pro</h3>
+                    <p>Sistema profesional de gestión de asistencia</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <a href="#" data-section="dashboard">Dashboard</a>
+                    <a href="#" data-section="registro">Escanear</a>
+                    <a href="#" data-section="asistentes">Asistentes</a>
+                    <a href="#" data-section="eventos">Eventos</a>
+                </div>
+                
+                <div class="footer-security">
+                    <h4><i class="fas fa-shield-alt"></i> Seguridad</h4>
+                    <p>Sistema protegido con:</p>
+                    <div class="security-badges">
+                        <span class="badge">SSL</span>
+                        <span class="badge">SQL Injection Protection</span>
+                        <span class="badge">XSS Protection</span>
+                        <span class="badge">CSRF Protection</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 EventPass Pro. Todos los derechos reservados.</p>
+                <div class="footer-stats">
+                    <span><i class="fas fa-server"></i> Servidor: <strong id="server-status">En línea</strong></span>
+                    <span><i class="fas fa-database"></i> Base de datos: <strong id="db-status">Conectada</strong></span>
+                    <span><i class="fas fa-clock"></i> Última actualización: <strong id="last-update">Ahora</strong></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
