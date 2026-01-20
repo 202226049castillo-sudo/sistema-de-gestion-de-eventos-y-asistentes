@@ -1,0 +1,277 @@
+/* =========================
+   RESET GENERAL
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-image: url("img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #111;
+}
+
+/* =========================
+   HEADER / TOPBAR
+========================= */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0b0b0b;
+    padding: 15px 40px;
+    color: #ffc400;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.menu a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #ffc400;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    min-height: 70vh;
+    background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        url("img/descarga.jpg") center/cover;
+    display: flex;
+    align-items: center;
+    padding: 60px;
+}
+
+.hero-content {
+    color: white;
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero-info {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+/* =========================
+   PANELES GENERALES
+========================= */
+.panel {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.panel-info {
+    max-width: 750px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* =========================
+   COLORES POR SECCIÓN
+========================= */
+.panel-eventos {
+    background: rgba(255,243,205,0.95);
+}
+
+.panel-asistentes {
+    background: rgba(227,242,253,0.95);
+}
+
+.panel-registro {
+    background: rgba(33,33,33,0.95);
+    color: white;
+}
+
+.panel-consulta {
+    background: rgba(232,245,233,0.95);
+}
+
+/* =========================
+   FORMULARIOS
+========================= */
+form {
+    margin-top: 30px;
+}
+
+input, select {
+    width: 260px;
+    padding: 12px;
+    margin: 10px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+    font-size: 14px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #ffc400;
+    box-shadow: 0 0 5px rgba(255,196,0,0.6);
+}
+
+/* =========================
+   LISTAS
+========================= */
+ul {
+    list-style: none;
+    margin-top: 25px;
+    padding: 0;
+}
+
+li {
+    background: white;
+    margin: 8px auto;
+    padding: 12px;
+    width: 340px;
+    border-radius: 6px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+    font-size: 14px;
+}
+
+/* =========================
+   BOTONES
+========================= */
+button,
+.btn-solid {
+    background: #ffc400;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover,
+.btn-solid:hover {
+    background: #e0ac00;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #ffc400;
+    color: #ffc400;
+    padding: 12px 25px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-outline:hover {
+    background: #ffc400;
+    color: #111;
+}
+
+/* =========================
+   TARJETAS DE INFO
+========================= */
+.info-card {
+    background: #ffffff;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 60px 40px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+}
+
+.info-card h2 {
+    font-size: 2.1rem;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.info-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: #0b0b0b;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+    margin-top: 60px;
+}
+/* OCULTAR SECCIONES */
+.oculto {
+    display: none;
+}
+
+/* MENÚ */
+.panel-menu {
+    background: #111;
+    color: white;
+}
+
+.menu-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.menu-grid button {
+    padding: 18px 30px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    background: #ffc400;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* TOAST */
+#toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 25px;
+    border-radius: 6px;
+    display: none;
+    font-weight: bold;
+}
+
+#toast.ok {
+    background: #4caf50;
+    color: white;
+}
+
+#toast.error {
+    background: #f44336;
+    color: white;
+}
+
