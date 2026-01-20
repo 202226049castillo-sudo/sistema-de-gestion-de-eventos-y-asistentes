@@ -1,5 +1,4 @@
-# Tomorrowland llegará a Tulum con CORE  
-## Sistema Web Integral de Gestión de Eventos y Asistencias
+ ## Sistema Web Integral de Gestión de Eventos y Asistencias
 ---
 ## Colaboradores del Proyecto
 
