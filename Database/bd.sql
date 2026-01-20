@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 
 CREATE DATABASE IF NOT EXISTS gestion_eventos;
 USE gestion_eventos;
+=======
+CREATE DATABASE gestion_eventos;
+USE institucion_eventos;
+>>>>>>> f1853e8 (Estructura del proyecto y archivos frontend/backend iniciales)
 
 
 CREATE TABLE eventos (
