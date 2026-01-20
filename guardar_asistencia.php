@@ -15,8 +15,6 @@ if (
 
 $asistencias = leerJSON($archivo);
 
-$asistencia = leerJSON($archivo);
-
 $datos["id"] = uniqid("reg_");
 $datos["fechaRegistro"] = date("Y-m-d H:i:s");
 
