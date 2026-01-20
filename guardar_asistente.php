@@ -12,7 +12,7 @@ if (!$datos || empty($datos["nombre"])) {
 $asistentes = leerJSON($archivo);
 
 $datos["id"] = uniqid("asis_");
-$asistentes[] = $datos; 
+$asistentes[] = $datos;
 
 guardarJSON($archivo, $asistentes);
 echo json_encode(["ok" => true]);
