@@ -22,97 +22,79 @@
 <!-- ================= HERO ================= -->
 <section class="hero">
     <div class="hero-content">
-        <h1>Gestión Inteligente de Eventos</h1>
+        <h1>Sistema de Gestión de Eventos</h1>
         <p class="hero-info">
             Administra eventos, registra asistentes y controla la asistencia
-            desde un sistema moderno, claro y fácil de usar.
+            de forma clara, sencilla y profesional.
         </p>
-        <button onclick="mostrarSeccion('menu')">🚀 Comenzar</button>
     </div>
 </section>
 
 <!-- ================= MENÚ PRINCIPAL ================= -->
 <section id="menu" class="panel">
-    <h2>Menú Principal</h2>
-    <p class="panel-info">Selecciona una acción para continuar</p>
+    <h2>Menú principal</h2>
+    <p class="panel-info">Seleccione una opción para continuar</p>
 
-    <div class="menu-grid">
-        <button onclick="mostrarSeccion('eventos')">
-            📅 <br> Gestión de Eventos
-        </button>
-
-        <button onclick="mostrarSeccion('asistentes')">
-            👤 <br> Registro de Asistentes
-        </button>
-
-        <button onclick="mostrarSeccion('asistencia')">
-            ✅ <br> Registro de Asistencia
-        </button>
-
-        <button onclick="mostrarSeccion('consulta')">
-            📋 <br> Consulta de Asistencia
-        </button>
-    </div>
+    <button onclick="mostrarSeccion('eventos')">📅 Gestión de eventos</button>
+    <button onclick="mostrarSeccion('asistentes')">👤 Registro de asistentes</button>
+    <button onclick="mostrarSeccion('asistencia')">✅ Registro de asistencia</button>
+    <button onclick="mostrarSeccion('consulta')">📋 Consulta de asistencia</button>
 </section>
 
 <!-- ================= EVENTOS ================= -->
-<section id="eventos" class="panel panel-eventos seccion oculto">
+<section id="eventos" class="panel panel-eventos seccion">
     <button class="btn-outline" onclick="mostrarSeccion('menu')">⬅ Regresar</button>
 
     <h2>Gestión de Eventos</h2>
-    <p class="panel-info">Registra y visualiza los eventos disponibles</p>
 
     <input type="text" id="eventoNombre" placeholder="Nombre del evento">
     <input type="date" id="eventoFecha">
-    <input type="text" id="eventoLugar" placeholder="Lugar del evento">
+    <input type="text" id="eventoLugar" placeholder="Lugar">
 
+    <br>
     <button onclick="guardarEvento()">Guardar evento</button>
 
     <ul id="listaEventos"></ul>
 </section>
 
 <!-- ================= ASISTENTES ================= -->
-<section id="asistentes" class="panel panel-asistentes seccion oculto">
+<section id="asistentes" class="panel panel-asistentes seccion">
     <button class="btn-outline" onclick="mostrarSeccion('menu')">⬅ Regresar</button>
 
     <h2>Registro de Asistentes</h2>
-    <p class="panel-info">Agrega personas que asistirán a los eventos</p>
 
     <input type="text" id="asistenteNombre" placeholder="Nombre del asistente">
-
+    <br>
     <button onclick="guardarAsistente()">Registrar asistente</button>
 
     <ul id="listaAsistentes"></ul>
 </section>
 
 <!-- ================= ASISTENCIA ================= -->
-<section id="asistencia" class="panel panel-registro seccion oculto">
+<section id="asistencia" class="panel panel-registro seccion">
     <button class="btn-outline" onclick="mostrarSeccion('menu')">⬅ Regresar</button>
 
     <h2>Registro de Asistencia</h2>
-    <p class="panel-info">Selecciona un evento y un asistente</p>
 
     <select id="selectEvento"></select>
     <select id="selectAsistente"></select>
-
+    <br>
     <button onclick="registrarAsistencia()">Registrar asistencia</button>
 </section>
 
 <!-- ================= CONSULTA ================= -->
-<section id="consulta" class="panel panel-consulta seccion oculto">
+<section id="consulta" class="panel panel-consulta seccion">
     <button class="btn-outline" onclick="mostrarSeccion('menu')">⬅ Regresar</button>
 
-    <h2>Consulta de Asistencia</h2>
-    <p class="panel-info">Visualiza los asistentes por evento</p>
+    <h2>Consulta de Asistencia por Evento</h2>
 
     <select id="consultaEvento"></select>
-
+    <br>
     <button onclick="verAsistencia()">Ver asistencia</button>
 
     <ul id="listaAsistencia"></ul>
 </section>
 
-<!-- ================= FOOTER ================= -->
 <footer>
     Sistema de Gestión de Eventos © 2026
 </footer>
