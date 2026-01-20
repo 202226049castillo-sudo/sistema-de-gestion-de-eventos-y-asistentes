@@ -9,3 +9,8 @@ function leerJSON($archivo) {
 function guardarJSON($archivo, $data) {
     file_put_contents($archivo, json_encode($data, JSON_PRETTY_PRINT));
 }
+
+funcion guardarJSON($archivo, $data) {
+    file_put_contents($archivo, json_encode($data, JSON_PRETTY_PRINT));
+}
+
