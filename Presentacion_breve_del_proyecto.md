@@ -46,14 +46,22 @@ Desarrollar un sistema web que permita la gestión eficiente de eventos y asiste
 
 ## 3. Estructura del Proyecto
 
-La organización del proyecto permite una clara separación entre lógica, presentación y recursos:
+```text
+sistema-asistencia-eventos
+│
+├── backend/
+│   ├── conectar.php                 # Conexión a la base de datos
+│   ├── registrar_eventos.php        # Registro de eventos
+│   ├── registrar_asistentes.php     # Registro de asistentes
+│   └── registrar_asistencias.php    # Registro de asistencias
+│
+├── database/
+│   └── database.sql                 # Script de creación de la base de datos
+│
+├── frontend/
+│   ├── index.html                   # Interfaz principal del sistema
+│   ├── script.js                    # Lógica del lado del cliente
+│   └── styles.css                   # Estilos del sistema
+│
+└── README.md                        # Documentación oficial del proyecto
 
-```plaintext
-Tomorrowland-llegara-a-Tulum-con-CORE
-│
-├── index.html        # Interfaz principal del sistema
-├── app.js            # Lógica de eventos y asistentes
-├── styles.css        # Diseño visual del sistema
-├── images/           # Recursos gráficos
-│
-└── README.md         # Documentación oficial del proyecto
